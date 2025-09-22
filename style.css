@@ -1,0 +1,205 @@
+/* Very basic styling to see our structure */
+body {
+    background: linear-gradient(135deg, #041c02, #0d0d0d);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+}
+
+.terminal-window {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.terminal-body {
+    min-height: auto;
+    height: calc(100vh - 60px);
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    
+}
+
+.terminal-header {
+    background: linear-gradient(90deg, #000000, #000000);
+    padding: 15px 20px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    border-bottom: 1px solid #00ff00;
+    
+}
+
+
+
+.window-controls {
+    display: flex;
+    gap: 12px;
+    
+}
+
+
+.terminal-title {
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+    margin-left: 10px;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: visible; /* Show all text */
+    
+}
+
+.terminal-body {
+    background-color: black;
+    padding: 20px;
+    border-radius: 0 0 5px 5px; /* Rounded bottom corners */
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.prompt {
+    color: #ffffff; /* Green prompt text */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.command {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.command:hover {
+    color: #00ff00; /* Green on hover */
+    background-color: rgba(80, 121, 80, 0.1);
+    text-shadow: 0 0 8px #00ff00;
+}
+
+.input-area {
+    border-top: 1px solid #00ff00;
+    padding-top: 15px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.command-input {
+    background-color:transparent;
+    color: #00ff00;
+    border: none;
+    outline: none;
+    width: 300px;
+    margin-left: 10px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+.command-input::placeholder {
+    color: #00ff00;
+    opacity: 0.7;
+}
+/* Improve the overall layout */
+
+
+.navigation {
+    margin-bottom: 25px;
+    padding: 15px;
+    border-bottom: 2px solid #00ff00;
+    background-color: rgba(0, 255, 0, 0.5);
+    border-radius: 0;
+    font-size: 18px;
+
+}
+
+
+
+.intro {
+    margin: 25px 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.content-area {
+    min-height: 250px;
+    margin: 25px 0;
+    padding: 20px;
+    border: 3px dashed #00ff00;
+    border-radius: 8px;
+    background-color: rgba(0, 255, 0, 0.2);
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+/* Ensure all text displays properly */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.terminal-body {
+    overflow-wrap: break-word; /* Break long words */
+    hyphens: auto; /* Add hyphens when breaking words */
+}
+
+/* Specific fix for long command lists */
+.navigation {
+    line-height: 1.8; /* More space between lines */
+}
+
+.command {
+    display: inline-block; /* Better control over command links */
+    margin: 0 3px; /* Space around commands */
+}
+.terminal-header, .navigation {
+    position: relative;
+}
+
+.terminal-header::after, .navigation::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(0, 255, 0, 0.3);
+    filter: blur(2px);
+}
+
+.terminal-header::after {
+    bottom: -6px;
+}
+
+.navigation::after {
+    bottom: -6px;
+}
+
