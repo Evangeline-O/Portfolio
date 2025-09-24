@@ -3,59 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Evangeline Omuko - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- MAIN CONTAINER - like a picture frame -->
     <div class="terminal-container">
-        
-        <!-- TERMINAL WINDOW - the actual terminal -->
         <div class="terminal-window">
             
-            <!-- HEADER - top bar with circles -->
+            <!-- Header -->
             <div class="terminal-header">
                 <div class="window-controls">
                     <div class="control close"></div>
                     <div class="control minimize"></div>
                     <div class="control maximize"></div>
                 </div>
-                <div class="terminal-title">Evangeline Omuko Portfolio</div>
+                <div class="terminal-title">Evangeline Omuko <br> Portfolio</div>
             </div>
             
-            <!-- BODY - where content goes -->
+            <!-- Body -->
             <div class="terminal-body">
                 
-                <!-- NAVIGATION - clickable commands -->
+                <!-- Navigation -->
                 <div class="navigation">
                     
                     <span class="command">help</span> | 
                     <span class="command">about</span> | 
                     <span class="command">projects</span> | 
-                    <span class="command">skills</span> |
+                    <span class="command">skills</span> | 
                     <span class="command">contact</span> | 
                     <span class="command">education</span> | 
                     <span class="command">clear</span>
                 </div>
                 
-                <!-- INTRODUCTION -->
-                <div class="intro">
-                    Hi, I'm Evangeline Omuko, a passionate IT student and aspiring developer.
-                </div>
+            
+    
                 
-                <!-- CONTENT AREA - where command results appear -->
+                <!-- Main Content Area (Dashed Box) -->
                 <div class="content-area">
-                    <p>Type a command or click one above to see my information!</p>
+                    
+                    
+                    <!-- Command Outputs will appear here -->
+                    <div class="output-container">
+                        <p>Hi, I'm Evangeline Omuko, a passionate IT student and aspiring developer.<br>Type a command or click one above to see my information!</p>
+                    </div>
+                    
+                    <!-- Input Area inside the dashed box -->
+                    <div class="input-area">
+                        <span class="prompt">evangeline@portfolio:~$</span>
+                        <input type="text" class="command-input" placeholder="Type a command here..." autofocus>
+                    </div>
                 </div>
-                
-                <!-- INPUT AREA - where you type commands -->
-                <div class="input-area">
-                    <span class="prompt">evangeline@portfolio:~$</span>
-                    <input type="text" class="command-input" placeholder="Type a command here...">
-                </div>
-                
+                <!-- Content footer with Prompt and Time -->
+                    <div class="content-footer">
+                        <span class="content-prompt">evangeline@portfolio:~$</span>
+                        <span class="content-time" id="current-time"></span>
+                    </div>
             </div>
         </div>
     </div>
+    <script>// Update time and date in real-time
+function updateDateTime() {
+    const now = new Date();
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    };
+    const dateTimeString = now.toLocaleDateString('en-US', options);
+    document.getElementById('current-time').textContent = dateTimeString;
+}
+
+// Update time immediately and then every second
+updateDateTime();
+setInterval(updateDateTime, 1000);
+
+// Command functionality (basic version)
+document.addEventListener('DOMContentLoaded', function() {
+    const commandInput = document.querySelector('.command-input');
+    const outputContainer = document.querySelector('.output-container');
+    const commands = document.querySelectorAll('.command');
+    
+    // Focus on input field
+    commandInput.focus();
+    
+    // Handle command input
+    commandInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const command = this.value.trim();
+            if (command) {
+                // Add command to output
+                const commandLine = document.createElement('div');
+                commandLine.innerHTML = `<span class="prompt">evangeline@portfolio:~$</span> ${command}`;
+                outputContainer.appendChild(commandLine);
+                
+                // Clear input
+                this.value = '';
+                
+                // Scroll to bottom
+                outputContainer.scrollTop = outputContainer.scrollHeight;
+            }
+        }
+    });
+    
+    // Handle command clicks
+    commands.forEach(cmd => {
+        cmd.addEventListener('click', function() {
+            const command = this.textContent;
+            const commandLine = document.createElement('div');
+            commandLine.innerHTML = `<span class="prompt">evangeline@portfolio:~$</span> ${command}`;
+            outputContainer.appendChild(commandLine);
+            
+            // Scroll to bottom
+            outputContainer.scrollTop = outputContainer.scrollHeight;
+            
+            // Focus back on input
+            commandInput.focus();
+        });
+    });
+});</script>
 </body>
 </html>

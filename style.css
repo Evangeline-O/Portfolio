@@ -40,12 +40,13 @@ body {
 
 .terminal-header {
     background: linear-gradient(90deg, #000000, #000000);
-    padding: 15px 20px;
+    padding: 15px 20px 15px 3px;
     border-radius: 0;
     display: flex;
     align-items: center;
     min-height: 60px;
-    border-bottom: 1px solid #00ff00;
+    border-bottom: 1px solid #026602;
+    justify-content: flex-start;
     
 }
 
@@ -59,10 +60,12 @@ body {
 
 
 .terminal-title {
-    color: white;
-    font-weight: bold;
-    font-size: 32px;
-    margin-left: 10px;
+    color: rgb(89, 89, 89);
+    font-size: 28px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    margin-left: 3px;
+    letter-spacing: 1px;
+    font-weight: normal;
     white-space: nowrap; /* Prevent wrapping */
     overflow: visible; /* Show all text */
     
@@ -77,7 +80,7 @@ body {
 }
 
 .prompt {
-    color: #ffffff; /* Green prompt text */
+    color: rgb(89, 89, 89); /* Green prompt text */
     font-weight: bold;
     font-size: 18px;
 }
@@ -96,13 +99,13 @@ body {
 }
 
 .command:hover {
-    color: #00ff00; /* Green on hover */
+    color: #026602; /* Green on hover */
     background-color: rgba(80, 121, 80, 0.1);
-    text-shadow: 0 0 8px #00ff00;
+    text-shadow: 0 0 8px #026602;
 }
 
 .input-area {
-    border-top: 1px solid #00ff00;
+    border-top: 1px solid #026602;
     padding-top: 15px;
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.3);
@@ -110,7 +113,7 @@ body {
 
 .command-input {
     background-color:transparent;
-    color: #00ff00;
+    color: #026602;
     border: none;
     outline: none;
     width: 300px;
@@ -121,17 +124,17 @@ body {
 }
 
 .command-input::placeholder {
-    color: #00ff00;
+    color: #026602;
     opacity: 0.7;
 }
 /* Improve the overall layout */
 
 
 .navigation {
-    margin-bottom: 25px;
-    padding: 15px;
-    border-bottom: 2px solid #00ff00;
-    background-color: rgba(0, 255, 0, 0.5);
+    margin-bottom: 7px;
+    padding: 3px;
+    border-bottom: 2px solid #026602;
+    background-color: rgba(166, 191, 166, 0);
     border-radius: 0;
     font-size: 18px;
 
@@ -141,19 +144,19 @@ body {
 
 .intro {
     margin: 25px 0;
-    color: #ffffff;
+    color: rgb(89, 89, 89);
     font-size: 18px;
     font-weight: bold;
     line-height: 1.5;
 }
 
 .content-area {
-    min-height: 250px;
-    margin: 25px 0;
+    min-height: 400px;
+    margin: 23px 0;
     padding: 20px;
-    border: 3px dashed #00ff00;
+    border: 3px dashed #026602;
     border-radius: 8px;
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: transparent;
     flex-grow: 1;
     font-size: 16px;
 }
@@ -192,14 +195,19 @@ body {
     right: 0;
     height: 2px;
     background: rgba(0, 255, 0, 0.3);
-    filter: blur(2px);
+    bottom: -6px;
+    
 }
 
-.terminal-header::after {
-    bottom: -6px;
+
+.content-area p {
+    color: rgb(89, 89, 89); 
+    font-size: 18px;
+    line-height: 1.5;
+}
+.content-footer {
+    color: rgb(89, 89, 89);
+    text-align: right;
 }
 
-.navigation::after {
-    bottom: -6px;
-}
 
